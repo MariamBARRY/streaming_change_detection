@@ -1,1 +1,5 @@
 __pycache__
+xpl_data*
+big_data_xpl
+*.csv
+*.png

@@ -32,7 +32,7 @@ class Dataset:
             Number of samples to generate.
         '''
         if isinstance(cols, int):
-            cols = [f'col_{i}' for i in range(cols)]
+            cols = [f'feature_{i}' for i in range(cols)]
         elif not isinstance(cols, (list, tuple)):
             cols = [cols]
         assert len(cols) == len(dist), \
@@ -193,9 +193,7 @@ class RandomDataset(Dataset):
         changepoints = deque(zip(changepoints, drift_steps))
         for i, col in enumerate(cols):
             mean, std = init_mean[i], init_std[i]
-            if col not in changing_cols:
-                dist.append(NormalDistribution(mean, std))
-            else:
+            if col in changing_cols:
                 i_ = i-len(dist)
                 cpt = changepoints.popleft()
                 stats, w = [], 1
@@ -203,8 +201,10 @@ class RandomDataset(Dataset):
                     stats.append((pts, mean+w*mean_ball[i_][j],
                                   std*std_ratio[i_][j], drift))
                     w = -w
-                changing_dist.append(
+                dist.append(
                     ChangingNormalDistribution(mean, std, stats))
+            else:
+                dist.append(NormalDistribution(mean, std))
         # init class attributes
         self.changing_cols = changing_cols
         super().__init__(cols, [*dist, *changing_dist], size)
