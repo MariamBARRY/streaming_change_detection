@@ -18,9 +18,12 @@ Experiments can be run on randomly generated datasets as demonstrated in [test.i
 
 Experiments on the [TCPD benchmark](https://github.com/alan-turing-institute/TCPDBench) have shown that ECDAS outperforms current state-of-the-art methods on five high-dimensional datasets.
 
-**Metric:** F1 score
-<img src='assets/f1.jpg'/>
-**Metric:** Cover
-<img src='assets/cover.jpg'/>
+<section align='center'>
+    <span><b>Metric:</b> F1 score</span>
+    <img src='assets/f1.jpg'/>
+</section>
 
-&ensp;
+<section align='center'>
+    <span><b>Metric:</b> Cover</span>
+    <img src='assets/f1.jpg'/>
+</section>
