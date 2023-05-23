@@ -20,10 +20,12 @@ Experiments on the [TCPD benchmark](https://github.com/alan-turing-institute/TCP
 
 <section align='center'>
     <span><b>Metric:</b> F1 score</span>
+    <br>
     <img src='assets/f1.jpg'/>
 </section>
 
 <section align='center'>
     <span><b>Metric:</b> Cover</span>
+    <br>
     <img src='assets/f1.jpg'/>
 </section>
